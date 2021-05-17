@@ -1,3 +1,5 @@
+linux下编译的clinfo没啥用啊，可以直接安装，要编译一个android端可以使用的，交叉编译一直遇到一些问题
+
 # What is this?
 
 clinfo is a simple command-line application that enumerates all possible
