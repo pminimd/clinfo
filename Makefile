@@ -61,7 +61,8 @@ LDFLAGS_Android += -Wl,-rpath-link=${ANDROID_VENDOR_PATH} -L${ANDROID_VENDOR_PAT
 LDFLAGS += $(LDFLAGS_$(OS))
 
 # Common library includes
-LDLIBS__common = -lOpenCL -ldl
+LDLIBS__common = -v -lOpenCL_system -lm -lc++ -lvndksupport -lcutils -lc -llog -ldl
+# LDLIBS__common = -lOpenCL -ldl
 
 # OS-specific library includes
 LDLIBS_Darwin = -framework OpenCL
@@ -91,6 +92,7 @@ all: $(TARGETS)
 #
 # Many versions of make define a LINK.c as a synthetic rule to link
 # C object files. In case it's not defined already, propose our own:
+CC=aarch64-linux-android21-clang
 LINK.c ?= $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
 
 # Recipe for the actual executable, either clinfo (non-Android)
